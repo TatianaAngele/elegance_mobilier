@@ -59,30 +59,71 @@
         ?>
 
         <?php if($v): ?>
-            <table class="table">
-                <tr>
-                    <td>Nom du produit</td>
-                    <td>Prix</td>
-                    <td>Date d'achat</td>
-                    <td>Nom du client</td>
-                    <td>Prénom du client</td>
-                </tr>
-
-                <?php for($i = 0; $i < count($v); $i++): ?>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary" id="btn-exporter"> <i class="fa fa-file-pdf"></i> Exporter en PDF</button>
+            </div>
+            
+            <div id="export">
+                <table class="table">
                     <tr>
-                        <td><?php echo $v[$i]['nom_produit'] ?></td>
-                        <td><?php echo $v[$i]['prix'] ?></td>
-                        <td><?php echo $v[$i]['date_vente'] ?></td>
-                        <td><?php echo $v[$i]['nom_client'] ?></td>
-                        <td><?php echo $v[$i]['prenom_client'] ?></td>
+                        <td>Nom du produit</td>
+                        <td>Prix</td>
+                        <td>Date d'achat</td>
+                        <td>Nom du client</td>
+                        <td>Prénom du client</td>
                     </tr>
-                <?php endfor ?>
-            </table>
+
+                    <?php for($i = 0; $i < count($v); $i++): ?>
+                        <tr>
+                            <td><?php echo $v[$i]['nom_produit'] ?></td>
+                            <td><?php echo $v[$i]['prix'] ?></td>
+                            <td><?php echo $v[$i]['date_vente'] ?></td>
+                            <td><?php echo $v[$i]['nom_client'] ?></td>
+                            <td><?php echo $v[$i]['prenom_client'] ?></td>
+                        </tr>
+                    <?php endfor ?>
+                </table>
+            </div>
         <?php else: ?>
             <p>Aucun de vos produit n'a été vendu.</p>
         <?php endif ?>
 
-    <!-- Chargement du script Bootstrap bundle -->
-    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script>
+            let btn = document.getElementById("btn-exporter"); 
+            btn.addEventListener('click', () => {
+                exportToPDF(); 
+            })
+
+            function exportToPDF() {
+                var content = document.getElementById("export").innerHTML;
+                var printWindow = window.open("", "", "width=800,height=600");
+                
+                printWindow.document.write(`
+                    <html>
+                    <head>
+                        <title>Export PDF</title>
+                        <style>
+                            table { width: 100%; border-collapse: collapse; }
+                            table, th, td { border: 1px solid black; padding: 10px; text-align: left; }
+                            th { background-color: #f2f2f2; }
+                        </style>
+                    </head>
+                    <body>${content}</body>
+                    </html>
+                `);
+
+                printWindow.document.close();
+                printWindow.focus();
+                
+                // Ouvre la boîte de dialogue d'impression
+                printWindow.print();
+                
+                // Ferme la fenêtre après impression
+                printWindow.close();
+            }
+        </script>
+
+        <!-- Chargement du script Bootstrap bundle -->
+        <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
