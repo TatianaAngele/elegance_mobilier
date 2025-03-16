@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"> <i class="fa fa-boxes"></i> Mes produits <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="#"> <i class="fa fa-boxes"></i> Mes produits <span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item">
@@ -41,6 +41,10 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="produit_vendu.php"> <i class="fa fa-money-bill-wave"></i> Produit vendu</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="rapport_stock.php"> <i class="fa fa-chart-line"></i> Rapport de stock</a>
                 </li>
             </ul>
         </div>
@@ -70,11 +74,11 @@
                                     <h4 class="card-title"><?php echo $p[$i]['nom_produit'] ?></h4>
                                     <p class="card-text">Prix : <?php echo $p[$i]['prix'] ?></p>
                                     <p class="card-text">Quantité en stock : <?php echo $p[$i]['quantite'] ?></p>
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modifierProduit"> <i class="fa fa-edit"></i> Modifier</button>
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modifierProduit<?php echo $p[$i]['id_produit'] ?>"> <i class="fa fa-edit"></i> Modifier</button>
                                     <button class="btn btn-danger mt-2" data-bs-toggle="modal" data-bs-target="#supprimerProduit"> <i class="fa fa-trash"></i> Supprimer</button>
 
                                     <!-- Modal pour modifier le produit -->
-                                    <div class="modal fade" id="modifierProduit">
+                                    <div class="modal fade" id="modifierProduit<?php echo $p[$i]['id_produit'] ?>">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
 

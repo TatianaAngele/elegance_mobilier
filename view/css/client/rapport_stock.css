@@ -1,0 +1,10 @@
+.entete {
+    background-color: #6CB4EE; 
+    padding: 10px; 
+}
+
+#myChart {
+    width: 800px !important; 
+    margin: auto;
+    height: 400px !important;
+}

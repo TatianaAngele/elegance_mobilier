@@ -40,7 +40,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="info_compte.php"> <i class="fa fa-money-bill-wave"></i> Produit vendu</a>
+                    <a class="nav-link active" href="info_compte.php"> <i class="fa fa-money-bill-wave"></i> Produit vendu</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="rapport_stock.php"> <i class="fa fa-chart-line"></i> Rapport de stock</a>
                 </li>
             </ul>
         </div>

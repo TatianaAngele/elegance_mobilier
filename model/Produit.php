@@ -197,6 +197,22 @@ class Produit
         return null; 
     }
 
+    // Rapport de stock pour le vendeur : 
+    public function rapport_stock() 
+    {
+        $sql = "SELECT nom_produit, quantite FROM produits WHERE id_vendeur = :id_vendeur;"; 
+        $stmt = $this->conn->prepare($sql); 
+        $stmt->bindParam(':id_vendeur', $this->id_vendeur); 
+
+        $stmt->execute();
+        $produit = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if($produit) 
+        {
+            return $produit; 
+        }
+        return null; 
+    }
 }
 
 ?>

@@ -36,11 +36,15 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> <i class="fa fa-plus-square"></i> Ajouter des produits </a>
+                    <a class="nav-link active" href="#"> <i class="fa fa-plus-square"></i> Ajouter des produits </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="produit_vendu.php"> <i class="fa fa-money-bill-wave"></i> Produit vendu</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="rapport_stock.php"> <i class="fa fa-chart-line"></i> Rapport de stock</a>
                 </li>
             </ul>
         </div>
