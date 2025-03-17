@@ -11,7 +11,7 @@
 <body>
     <div class="d-flex justify-content-between entete">
         <div>
-            <i class="fa fa-couch"></i> Elegence Mobilier
+            <i class="fa fa-couch"></i> Elegance Mobilier
         </div>
 
         <div>
